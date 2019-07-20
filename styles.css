@@ -1,0 +1,33 @@
+html {
+    background: rgb(111,255,226);
+    background: linear-gradient(281deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
+}
+
+nav{
+    height: 100%;
+    padding-left: 2rem;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li{
+    display: inline-block;
+}
+
+nav li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 18px;
+}
+  
+nav a:hover{
+    color: black;
+}
+
