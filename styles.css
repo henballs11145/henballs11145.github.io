@@ -1,7 +1,12 @@
 html {
     background: rgb(111,255,226);
-    background: linear-gradient(260deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
+    background: linear-gradient(269deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
     font-family: 'Montserrat', sans-serif;
+    height: 100%;
+}
+
+body {
+    height: 30%;
 }
 
 nav {
@@ -36,26 +41,26 @@ nav a:hover {
     display: flex;           
     flex-direction: column;  
     justify-content: center; 
-    align-items: center;     
+    align-items: center;      
     height: 20rem;
 }
 
 .personal-intro {
-    width: 80%;
-    text-align: center;  
-    font-size: 50px;
+    width: 80%; 
+    text-align: center;   
+    font-size: 50px; 
     color: white; 
 }
 
-button {
-    background-color: #3ecf8e;
-    border: none;
-    color: white;
+.button {
+    background-color: #4CAF50;
+    display:inline-block;
     padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
     border-radius: 8px;
-    border: 2px solid #3ecf8e;
+    font-size: 22px;
+    border: 2px solid #4CAF50;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: white;
 }
+   
