@@ -1,6 +1,7 @@
 html {
     background: rgb(111,255,226);
     background: linear-gradient(260deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
+    font-family: 'Montserrat', sans-serif;
 }
 
 nav {
