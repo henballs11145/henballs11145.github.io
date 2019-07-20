@@ -1,24 +1,24 @@
 html {
     background: rgb(111,255,226);
-    background: linear-gradient(281deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
+    background: linear-gradient(260deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
 }
 
-nav{
+nav {
     height: 100%;
     padding-left: 2rem;
 }
 
-nav ul{
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-nav li{
+nav li {
     display: inline-block;
 }
 
-nav li a{
+nav li a {
     display: block;
     text-decoration: none;
     color: white;
@@ -27,7 +27,34 @@ nav li a{
     font-size: 18px;
 }
   
-nav a:hover{
+nav a:hover {
     color: black;
 }
 
+.container {
+    display: flex;           
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;     
+    height: 20rem;
+}
+
+.personal-intro {
+    width: 80%;
+    text-align: center;  
+    font-size: 50px;
+    color: white; 
+}
+
+button {
+    background-color: #3ecf8e;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #3ecf8e;
+}
