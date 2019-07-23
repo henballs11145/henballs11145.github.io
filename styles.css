@@ -6,17 +6,18 @@ html {
 }
 
 body {
-    height: 30%;
+    height: 80%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 nav {
     /* height: 20%; */
-    padding-left: 2rem;
     background: rgb(111,255,226);
     background: linear-gradient(269deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
 }
 
 .navbar-light .navbar-nav .nav-link{
+    padding-left: 2rem;
     color: white; 
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
