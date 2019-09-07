@@ -1,6 +1,5 @@
 html {
-    background: rgb(111,255,226);
-    background: linear-gradient(269deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
+    background: rgba(199,144,128,100);
     font-family: 'Montserrat', sans-serif;
     height: 100%;
 }
@@ -8,12 +7,12 @@ html {
 body {
     height: 80%;
     font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to top, #c79081 0%, #dfa579 100%);
 }
 
 nav {
-    /* height: 20%; */
-    background: rgb(111,255,226);
-    background: linear-gradient(269deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
+    background: rgb(199,144,128,100);
+    background: linear-gradient(to top, #c79081 0%, #dfa579 100%);
     border-bottom-color: none;
 
 }
@@ -30,13 +29,16 @@ nav a:hover {
 }
 
 .intro {
-    background: rgb(111,255,226);
-    background: linear-gradient(269deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
+    background: rgb(199,144,128,100);
     height: 100%;
     display: flex;           
     flex-direction: column;  
     justify-content: center; 
     align-items: center;      
+}
+
+.intro a {
+    font-size: 25px;
 }
 
 .personal-intro {
@@ -48,6 +50,7 @@ nav a:hover {
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
+
     .intro a {
         width: 35%;
         font-size: 25px;
@@ -56,6 +59,7 @@ nav a:hover {
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
+
   .personal-intro {
       font-size: 40px;
   }
@@ -72,5 +76,3 @@ nav a:hover {
         font-size: 18px;
     }
 }
-
-@media 
