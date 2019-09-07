@@ -14,6 +14,8 @@ nav {
     /* height: 20%; */
     background: rgb(111,255,226);
     background: linear-gradient(269deg, rgba(111,255,226,1) 0%, rgba(54,119,255,1) 100%);
+    border-bottom-color: none;
+
 }
 
 .navbar-light .navbar-nav .nav-link{
@@ -21,7 +23,6 @@ nav {
     color: white; 
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-
 }
   
 nav a:hover {
@@ -44,4 +45,32 @@ nav a:hover {
     font-size: 50px; 
     color: white; 
 }
-  
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .intro a {
+        width: 35%;
+        font-size: 25px;
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .personal-intro {
+      font-size: 40px;
+  }
+}
+ 
+
+@media (max-width: 480px) {
+
+    .personal-intro {
+        font-size: 28px;
+        width: 90%;
+    }
+    .intro a {
+        font-size: 18px;
+    }
+}
+
+@media 
