@@ -25,3 +25,40 @@ a{
 a:hover {
     text-decoration: underline;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .article-title{
+        width: 80%;
+    }
+
+    .article-text {
+        width: 80%;
+    }
+
+
+  }
+  
+  /* cellphones */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .article-title{
+        width: 80%;
+    }
+
+    .article-text {
+        width: 80%;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+
+    .article-title{
+        width: 80%;
+    }
+
+    .article-text {
+        width: 80%;
+    }
+  }
+    
+  
