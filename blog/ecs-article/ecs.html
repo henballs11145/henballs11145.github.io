@@ -4,9 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta property="og:image" content="https://www.digitalcare.org/wp-content/uploads/2016/11/Free-Desktop-Wallpaper-feature-696x465.jpg">
+    <link rel="stylesheet" type="text/css" href="ecs.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../assets/reading.png" type="image" sizes="16x16" title="Freepik">
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" type="text/css" href="ecs.css">
+
+    <title>ECS</title>
 </head>
 <body>
-    
+
+    <div class="article-title"> 
+        <h1> Setting up AWS ECS with Terraform</h1>
+        <h5><i>Written on September 16, 2019</i></h5>
+        <h5>by Henry Gonzales</h5>
+    </div>
+
+    <br>
+
+    <div class="article-text">
+        <p>
+            Hello to whoever is reading this, 
+                I am writing this as sort of a way to remind me of the steps I took
+                to get this setup to work. If you happen to stumble upon this post looking for a sample setup,
+                I hope it will help you out.
+        </p>
+
+        <p> Terraform is a way to put up infrastructure using code. 
+            The reason it's gaining popularity is that it can do it all in 1 command! 
+            More info on that <a href="https://www.terraform.io/intro/index.html">here</a>.
+        </p>
+
+        <p>
+            Now as you can see from the title, this post is about putting up the ECS service on AWS. 
+            I won't dwell too much on what the service is. You can read up about that <a href="https://aws.amazon.com/ecs/">here</a>.
+        </p>
+
+        <p> 
+            The first part of this setup would be to put up a vpc (not in this post) and a load balancer.
+            The load balancer would be the one receiving traffic from the internet and sending it to wherever we direct it to. 
+        </p>
+
+        <script src="https://gist.github.com/henrygonzaless/527ab31b128bf0b393ffd8a3cd34ba3e.js"></script>
+
+        <p> 
+            The snippet above shows a simple load balancer being created. The value for the subnets will reference
+            the public subnets declared in either your private vpc or default vpc in your region. The security group id will
+            come from the a security group about to be declared.
+        </p>
+
+        <script src="https://gist.github.com/henrygonzaless/0e17cbe7bdc4baa509dd2630805585f1.js"></script>
+
+        <p>
+            The security group for the load balancer references a vpc id. This is so that the subnets being referenced in the
+            load balancer can be matched to the vpc you have provided in this security group.
+        </p>
+
+        <p> Next are the ingress settings. Ingress is the range of ports it listens on. For this load balancer,
+            we will open up ports 443 and 80 for our HTTP/S traffic. The egress settings are set to -1 and port range 0 as
+            we open it up to everything inside the vpc.
+        </p>
+
+        <h5> TO BE CONTINUED...</h5>
+    </div>
+
+
+    <!-- <script src="https://gist.github.com/henrygonzaless/0e17cbe7bdc4baa509dd2630805585f1.js"></script> -->
+
 </body>
 </html>
