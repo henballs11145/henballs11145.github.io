@@ -79,7 +79,7 @@
         <p>
             The listener here would listen for http traffic at port 80. When it receives traffic from the load balancer, it forwards the traffic towards
             the target group being referenced in the default_action section. Configurations for a listener for https traffic is very much possible. One would
-            need to register a certificate in the cert manager first and then add that in the configurations for the listener. More on that <a href="https://www.terraform.io/docs/providers/aws/r/lb_listener.html#forward-action"><u>here</u> </a>.
+            need to register a certificate in the cert manager first and then add that in the configurations for the listener. More on that <a href="https://www.terraform.io/docs/providers/aws/r/lb_listener.html#forward-action"><u>here</u></a>.
         </p>
 
         <p>
@@ -89,7 +89,7 @@
         <script src="https://gist.github.com/henrygonzaless/fccf95302496909411957d9953722b4a.js"></script>
 
         <p> 
-            A few notable configurations in the target group. The target_type I set is "ip". This is specific to the fargate launch type in 
+            A few notable configurations in the target group. The target type set is "ip". This is specific to the fargate launch type in 
             ECS. There are other values like lambda and the instance type depending on the configuration of what your setup will look like. 
         </p>
 
@@ -98,7 +98,7 @@
         </p>
 
         <p>
-            Finally we have the health check configurations. I initially put this up with the default settings of the healthchecks only to find out that
+            Finally we have the health check configurations. I initially put this up with the default settings of the health checks only to find out that
             they were failing due to not having enough time to start up. So I bumped up the timeout and interval to 30s and 41s respectively. For the health checks to pass,
             the path and the status code have to match. In my case, I have the path to the home "/" path and the status code range of 200-301 in preparation for the https 301
             redirect listener. 
