@@ -98,4 +98,7 @@ footer {
     .intro a {
         font-size: 18px;
     }
+    .footer-logo {
+        margin-left: 10px
+    }
 }
