@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:image" content="https://www.digitalcare.org/wp-content/uploads/2016/11/Free-Desktop-Wallpaper-feature-696x465.jpg">
+    <link rel="stylesheet" type="text/css" href="ecs.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../assets/reading.png" type="image" sizes="16x16" title="Freepik">
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" type="text/css" href="ecs.css">
+
+    <title>ECS</title>
+</head>
+<body>
+
+    <div class="article-title"> 
+        <h1> Setting up AWS ECS with Terraform</h1>
+        <h5><i>Written on September 16, 2019</i></h5>
+        <h5><i>Last updated: September 23, 2019</i></h5>
+        <h5>by Henry Gonzales</h5>
+    </div>
+
+    <br>
+
+    <div class="article-text">
+        <p>
+            Hello to whoever is reading this, 
+                I am writing this as sort of a way to remind me of the steps I took
+                to get this setup to work. If you happen to stumble upon this post looking for a sample setup,
+                I hope it will help you out.
+        </p>
+
+        <p> Terraform is a way to put up infrastructure using code. 
+            The reason it's gaining popularity is that it can do it all in 1 command! 
+            More info on that <a href="https://www.terraform.io/intro/index.html"><u>here</u></a>.
+        </p>
+
+        <p>
+            Now as you can see from the title, this post is about putting up the ECS service on AWS. 
+            I won't dwell too much on what the service is. You can read up about that <a href="https://aws.amazon.com/ecs/"><u>here</u></a>.
+        </p>
+
+        <p> 
+            The first part of this setup would be to put up a vpc (not in this post) and a load balancer.
+            The load balancer would be the one receiving traffic from the internet and sending it to wherever we direct it to. 
+        </p>
+
+        <script src="https://gist.github.com/henrygonzaless/527ab31b128bf0b393ffd8a3cd34ba3e.js"></script>
+
+        <p> 
+            The snippet above shows a simple load balancer being created. The value for the subnets will reference
+            the public subnets declared in either your private vpc or default vpc in your region. The security group id will
+            come from the a security group about to be declared.
+        </p>
+
+        <script src="https://gist.github.com/henrygonzaless/0e17cbe7bdc4baa509dd2630805585f1.js"></script>
+
+        <p>
+            The security group for the load balancer references a vpc id. This is so that the subnets being referenced in the
+            load balancer can be matched to the vpc you have provided in this security group.
+        </p>
+
+        <p>
+            Next are the ingress settings. Ingress is the range of ports it listens on. For this load balancer,
+            we will open up ports 443 and 80 for our HTTP/S traffic. The egress settings are set to -1 and port range 0 as
+            we open it up to everything inside the vpc.
+        </p>
+
+        <p>
+            Up next, we would need configurations for the listener. The listener is where the load balancer would listen for incoming traffic.
+        </p>
+
+        <script src="https://gist.github.com/henrygonzaless/305c4dea98e5ebe94e27dae7036da291.js"></script>
+
+        <p>
+            The listener here would listen for http traffic at port 80. When it receives traffic from the load balancer, it forwards the traffic towards
+            the target group being referenced in the default_action section. Configurations for a listener for https traffic is very much possible. One would
+            need to register a certificate in the cert manager first and then add that in the configurations for the listener. More on that <a href="https://www.terraform.io/docs/providers/aws/r/lb_listener.html#forward-action"><u>here</u></a>.
+        </p>
+
+        <p>
+            The target group that will receive the traffic from the listener can be seen right here.
+        </p>
+
+        <script src="https://gist.github.com/henrygonzaless/fccf95302496909411957d9953722b4a.js"></script>
+
+        <p> 
+            A few notable configurations in the target group. The target type set is "ip". This is specific to the fargate launch type in 
+            ECS. There are other values like lambda and the instance type depending on the configuration of what your setup will look like. 
+        </p>
+
+        <p>
+            Next up would be the port. The port here would refer to the port where your docker image is exposed to.
+        </p>
+
+        <p>
+            Finally we have the health check configurations. I initially put this up with the default settings of the health checks only to find out that
+            they were failing due to not having enough time to start up. So I bumped up the timeout and interval to 30s and 41s respectively. For the health checks to pass,
+            the path and the status code have to match. In my case, I have the path to the home "/" path and the status code range of 200-301 in preparation for the https 301
+            redirect listener. 
+        </p>
+
+        <h5> TO BE CONTINUED... THE ECS CLUSTER SETTINGS...</h5>
+    </div>
+
+</body>
+</html>
