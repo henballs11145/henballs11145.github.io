@@ -19,7 +19,7 @@ nav {
     border-bottom-color: none;
 }
 
-.navbar-light .navbar-nav .nav-link{
+.navbar-light .navbar-nav .nav-link {
     padding-left: 2rem;
     color: black; 
     font-family: 'Montserrat', sans-serif;
@@ -83,6 +83,18 @@ footer {
   margin-right: 20px;
   text-decoration: none;
   color: white;
+}
+
+.list-inline-item {
+  text-decoration: none;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* tablets */
