@@ -46,12 +46,12 @@ nav a:hover {
 
 .fakeimg {
   width: 90%;
-  padding: 20px;
+  padding: 15px;
   flex: 0.3;
 }
 
 .fakeimg img {
-    width: 300px;
+    width: 250px;
     height: 200px;
 }
 .card-content {
@@ -71,13 +71,19 @@ nav a:hover {
   justify-content: center;
 }
 
-/* Footer
-.footer {
-  padding: 20px;
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.footer-logo {
   text-align: center;
-  background: #ddd;
-  margin-top: 20px;
-} */
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+}
 
 /* tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
